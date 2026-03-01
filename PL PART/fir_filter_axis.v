@@ -4,22 +4,20 @@ module fir_filter_axis #
 (parameter DATA_WIDTH = 32,
 parameter TAP_NUM = 5
 )
-(
-    input  wire aclk,
-    input  wire aresetn,
+(input  wire aclk,
+input  wire aresetn,
 
     // AXI Stream Slave
-    input  wire [DATA_WIDTH-1:0] s_axis_tdata,
-    input  wire  s_axis_tvalid,
-    output wire s_axis_tready,
-    input  wire s_axis_tlast,
+input  wire [DATA_WIDTH-1:0] s_axis_tdata,
+input  wire  s_axis_tvalid,
+output wire s_axis_tready,
+input  wire s_axis_tlast,
 
     // AXI Stream Master
-  output reg  [DATA_WIDTH-1:0] m_axis_tdata,
-    output reg  m_axis_tvalid,
-    input  wire m_axis_tready,
-    output reg m_axis_tlast
-);
+output reg  [DATA_WIDTH-1:0] m_axis_tdata,
+output reg  m_axis_tvalid,
+input  wire m_axis_tready,
+output reg m_axis_tlast);
 
     // FIR coefficients
     reg signed [DATA_WIDTH-1:0] coeffs [0:TAP_NUM-1];
